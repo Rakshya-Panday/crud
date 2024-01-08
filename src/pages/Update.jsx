@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Input from "../components/Input";
 import Select from "../components/Select";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { updateDetails, getDataById } from "../store/userSlice";
 import { useState } from "react";
 
@@ -10,8 +10,8 @@ const Update = () => {
   const { id } = useParams();
   const { userDetails } = useSelector((state) => state.users);
   const dispatch = useDispatch();
-   
-  const [userDetail,setUserDetail]= useState({});
+   const navigate = useNavigate();
+  // const [userDetail,setUserDetail]= useState({});
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -28,8 +28,8 @@ const Update = () => {
  
   useEffect(()=>{
     const toBeUpdateInput = userDetails.find(item=>item.id===id);
-    console.log(userDetails,toBeUpdateInput);
-    console.log(input);
+    // console.log(userDetails,toBeUpdateInput);
+    // console.log(input);
     setInput(toBeUpdateInput);
    
   },[id])
@@ -50,8 +50,8 @@ const Update = () => {
   const updateData = (e) => {
     e.preventDefault();
     dispatch(updateDetails({id,input}));
-
-    // setInput("")
+    navigate('/')
+    
   };
   return (
     <div className="w-full max-w-2xl mx-auto  rounded-lg px-4 py-3 text-white">

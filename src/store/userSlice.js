@@ -35,11 +35,11 @@ export const userSlice = createSlice({
            localStorage.setItem("userDetails",JSON.stringify(state.userDetails));
         },
         updateDetails :(state,action )=>{
-            console.log('update Details',action.payload);
+            // console.log('update Details',action.payload);
             const {id,input} = action.payload;
              const updatedData = state.userDetails.map((item)=> item.id === id ?input:item
              );
-             console.log("updated",updatedData);
+            //  console.log("updated",updatedData);
              state.userDetails = updatedData;
              localStorage.setItem('userDetails',JSON.stringify(state.userDetails));
             

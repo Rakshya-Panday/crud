@@ -14,7 +14,7 @@ import { createBrowserRouter,createRoutesFromElements, RouterProvider,Route} fro
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route pathh = '/' element = {<App/>}>
+      <Route path = '/' element = {<App/>}>
         <Route path = "" element = {<Home/>}/>
         <Route path="/profile" element = {<Profile/>}/>  
         <Route path="/update/:id" element = {<Update/>}/>  
